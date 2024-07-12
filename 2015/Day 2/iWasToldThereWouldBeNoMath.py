@@ -4,4 +4,3 @@ file = np.loadtxt('input.txt', dtype=str)
 
 print(file)
 
-print(file[0])
