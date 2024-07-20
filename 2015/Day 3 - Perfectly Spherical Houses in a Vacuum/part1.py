@@ -1,17 +1,13 @@
-file = open("input.txt").read().split()
+input = open("input.txt", "r").read()
 
-position = (0, 0)
+def main():
+    pos = [0,0]
+    new_pos = [(0,0)]
+    for i in input:
+        pos[0] += {"^": 0, "v": 0, ">": 1, "<": -1}[i]
+        pos[1] += {"^": 1, "v": -1, ">": 0, "<": 0}[i]
+        new_pos.append(tuple(pos))
+    return len(set(new_pos))
+print(main())
 
-for i in file:
-    x, y = position
-    if i == '>':
-        x += 1
-    elif i == '<':
-        x -= 1
-    elif i == 'v':
-        y += 1
-    elif i == '^':
-        y -= 1
-    newPos = position.add(x,y)
-print(newPos)
 
